@@ -38,42 +38,6 @@ Citizen.CreateThread(function ()
 	end
 end)
 
--- Sandy Shores SO
-Citizen.CreateThread(function()
-    while true do 
-        Citizen.Wait(0)
-            if GetDistanceBetweenCoords(1852.9208984375, 3687.6489257813, 34.276844024658, GetEntityCoords(player)) < 0.5 then
-                drawTxt('Press ~g~L~s~ to buzz', 2, 1, 0.5, 0.8, 0.6, 255, 255, 255, 255)
-            if IsControlJustReleased(1, 182) then
-                if GetDistanceBetweenCoords(1852.9208984375, 3687.6489257813, 34.276844024658, GetEntityCoords(player)) < 35 then
-                    PlaySoundFrontend(-1, audioName, audioRef, 0, 0, 1)
-                    dings = dings +1 
-                    Citizen.Wait(times)
-                    dings = dings -1
-                end
-            end
-        end
-    end
-end)
-
--- Paleto Bay SO
-Citizen.CreateThread(function()
-    while true do 
-        Citizen.Wait(0)
-            if GetDistanceBetweenCoords(-447.07751464844, 6013.0073242188, 31.716390609741, GetEntityCoords(player)) < 0.5 then
-                drawTxt('Press ~g~L~s~ to buzz', 2, 1, 0.5, 0.8, 0.6, 255, 255, 255, 255)
-            if IsControlJustReleased(1, 182) then
-                if GetDistanceBetweenCoords(-447.07751464844, 6013.0073242188, 31.716390609741, GetEntityCoords(player)) < 35 then
-                    PlaySoundFrontend(-1, audioName, audioRef, 0, 0, 1)
-                    dings = dings +1 
-                    Citizen.Wait(times)
-                    dings = dings -1
-                end
-            end
-        end
-    end
-end)
-
 RegisterNetEvent('RNG_FrontDeskPage:Page')
 AddEventHandler('RNG_FrontDeskPage:Page', function(location)
     for k,v in pairs(location.JobsToPage) do
