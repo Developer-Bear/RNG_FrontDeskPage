@@ -5,9 +5,9 @@ RegisterServerEvent('RNG_FrontDeskPage:SendPage')
 AddEventHandler('RNG_FrontDeskPage:SendPage', function(location)
     if not CooldownActive then
         if Config.UseMythicNotify then
-            TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'success', text = 'You paged for assistance!'})
+            TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'success', text = _U('successfulPage')})
         else 
-            TriggerClientEvent('esx:showNotification', source, 'You paged for assistance!')
+            TriggerClientEvent('esx:showNotification', source, _U('successfulPage'))
         end
         TriggerClientEvent('RNG_FrontDeskPage:Page', -1, location)
         if Config.CoolDown ~= 0 then
@@ -15,9 +15,9 @@ AddEventHandler('RNG_FrontDeskPage:SendPage', function(location)
         end
     else
         if Config.UseMythicNotify then
-            TriggerClientEvent('mythic_notify:client:SendAlert', source,{ type = 'error', text = 'The department was recently paged. Please be patient!'})
+            TriggerClientEvent('mythic_notify:client:SendAlert', source,{ type = 'error', text = _U('recentPage')})
         else 
-            TriggerClientEvent('esx:showNotification', source, 'The department was recently paged. Please be patient!')
+            TriggerClientEvent('esx:showNotification', source, _U('recentPage'))
         end
     end
 end)

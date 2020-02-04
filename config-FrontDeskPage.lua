@@ -1,5 +1,7 @@
 Config = {}
 
+Config.Locale = 'en'
+
 -- How far away from the desk the player can be before the text is displayed
 Config.TextDrawDistance = 3
 

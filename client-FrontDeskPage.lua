@@ -29,7 +29,7 @@ Citizen.CreateThread(function ()
 		for k,v in pairs(Config.Locations) do
             if GetDistanceBetweenCoords(coords, v.Coords.x, v.Coords.y, v.Coords.z, true) < Config.TextDrawDistance then
                 local location = v
-                DrawText3D(v.Coords.x, v.Coords.y, v.Coords.z - 1.0, 'Press ~g~L~s~ to page staff')
+                DrawText3D(v.Coords.x, v.Coords.y, v.Coords.z - 1.0, _U('pageFloatingText'))
                 if IsControlJustReleased(1, 182) then
                     TriggerServerEvent('RNG_FrontDeskPage:SendPage', location)
                 end
@@ -42,7 +42,7 @@ RegisterNetEvent('RNG_FrontDeskPage:Page')
 AddEventHandler('RNG_FrontDeskPage:Page', function(location)
     for k,v in pairs(location.JobsToPage) do
         if PlayerData.job and PlayerData.job.name == v then
-            TriggerEvent("chatMessage", "Dispatch: ", {255, 0, 0}, "Help requested at ^5" .. location.DisplayName .. "^7 front desk")
+            TriggerEvent("chatMessage", "Dispatch: ", {255, 0, 0}, _U('notificationText', location.DisplayName))
             PlaySoundFrontend(-1, Config.SoundDirectory, Config.SoundName, 0,0,1)
         end
     end
